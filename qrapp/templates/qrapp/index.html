@@ -1,0 +1,25 @@
+{% extends 'qrapp/base.html' %}
+
+{% block mainstring %}
+Отсканируйте штрихкод
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="col-lg-6 mx-auto">
+      <p class="lead mb-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">слева внизу ценника</font></font></p>
+    <div>
+    <div id="container">
+        <video width="340" height="400" autoPlay="true" id="video">
+            <script src="{% static 'js/camera.js' %}"> </script>
+        </video>
+    </div>
+    <script>let url = "{% url 'getDataPhoto' %}"</script>
+<!--    <button onClick="capture(url)">Выполнить</button>-->
+     <input type="submit" class="btn btn-primary btn-lg px-4 gap-3" value="Сканировать" onclick="capture(url)">
+    </div>
+       <canvas id="canvas"> </canvas>
+</div>
+
+{% endblock %}
